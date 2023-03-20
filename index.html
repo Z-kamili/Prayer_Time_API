@@ -56,14 +56,14 @@
         }
     </style>
 </head>
-<body style="direction:rtl">
+<body >
     <div>
         <!-- CITY NAME + DATE  -->
         <div>
             <!-- CITY NAME -->
             <div style="color:white; margin-right: 40px;">
-                <h1 id="city-name">الرباط</h1>
-                <h6 style="font-size: 40px; font-weight: 200;">الإتنين 20 مارس</h6>
+                <h1 id="city-name">RABAT</h1>
+                <h6 style="font-size: 40px; font-weight: 200;" id="date" >الإتنين 20 مارس</h6>
             </div>
         </div>
         <!--// CITY NAME + DATE -->
@@ -74,7 +74,7 @@
              <div class="card">
                   <div class="header">
                        <h1 style="font-size: 20px;padding: 10px;text-align: center;">
-                        الفجر
+                        Fajr
                        </h1>
                   </div>
 
@@ -87,7 +87,7 @@
              <div class="card">
                 <div class="header">
                      <h1 style="font-size: 20px;padding: 10px;text-align: center;" id="fajr-time">
-                        الضهر                     
+                        Dohr                     
                     </h1>
                 </div>
 
@@ -100,7 +100,7 @@
            <div class="card">
             <div class="header">
                  <h1 style="font-size: 20px;padding: 10px;text-align: center;" >
-                    العصر             
+                    Asr             
                 </h1>
             </div>
 
@@ -113,7 +113,7 @@
        <div class="card">
         <div class="header">
              <h1 style="font-size: 20px;padding: 10px;text-align: center;" >
-                المغرب            
+                Maghrib            
              </h1>
         </div>
 
@@ -126,7 +126,7 @@
    <div class="card">
     <div class="header">
          <h1 style="font-size: 20px;padding: 10px;text-align: center;">
-            العشاء         
+            Ichaa         
          </h1>
     </div>
 
@@ -164,7 +164,18 @@
         params : params
     })
     .then(function (response) {
-        console.log(response.data);
+     const timings = response.data.data.timings;
+     document.getElementById("fajr-time").innerHTML = timings.Fajr;
+     document.getElementById("dhurh-time").innerHTML = timings.Dhuhr;
+     document.getElementById("asr-time").innerHTML = timings.Asr;
+     document.getElementById("sunset-time").innerHTML = timings.Sunset;
+     document.getElementById("isha-time").innerHTML = timings.Isha;
+    // console.log(response.data.data.date.readable);
+    //  const readableDate = response.data.data.readableDate;
+    //  const weekDay = response.data.data.data.hijri.weekDay.ar;
+    // const date = readableDate + " " + weekDay;
+     document.getElementById("date").innerHTML = response.data.data.date.readable;
+    //  console.log(readableDate + " " + weekDay);
     })
     .catch(function (error) {
         console.log(error);
