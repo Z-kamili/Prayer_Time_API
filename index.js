@@ -1977,3 +1977,30 @@ let cities = [
         select.appendChild(opt);
     })
   };
+
+  document.getElementById("cities").addEventListener("change",function() {
+    let params = {
+        country : "MA",
+        city:this.value
+    }
+    axios.get('http://api.aladhan.com/v1/timingsByCity',{
+        params : params
+    })
+    .then(function (response) {
+     const timings = response.data.data.timings;
+     document.getElementById("fajr-time").innerHTML = timings.Fajr;
+     document.getElementById("dhurh-time").innerHTML = timings.Dhuhr;
+     document.getElementById("asr-time").innerHTML = timings.Asr;
+     document.getElementById("sunset-time").innerHTML = timings.Sunset;
+     document.getElementById("isha-time").innerHTML = timings.Isha;
+    // console.log(response.data.data.date.readable);
+    //  const readableDate = response.data.data.readableDate;
+    //  const weekDay = response.data.data.data.hijri.weekDay.ar;
+    // const date = readableDate + " " + weekDay;
+     document.getElementById("date").innerHTML = response.data.data.date.readable;
+    //  console.log(readableDate + " " + weekDay);
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+  })
