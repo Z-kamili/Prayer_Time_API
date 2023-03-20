@@ -1975,15 +1975,23 @@ let cities = [
         opt.value = city.name;
         opt.innerHTML = city.name;
         select.appendChild(opt);
-    })
-  };
+    });
+    callApi('Safi');
+};
 
   document.getElementById("cities").addEventListener("change",function() {
+    
+    callApi(this.value);
+
+  });
+
+  function callApi(city) 
+  {
     let params = {
         country : "MA",
-        city:this.value
+        city:city
     };
-    document.getElementById('city-name').innerText = this.value;
+    document.getElementById('city-name').innerText = city;
     axios.get('http://api.aladhan.com/v1/timingsByCity',{
         params : params
     })
@@ -1994,14 +2002,9 @@ let cities = [
      document.getElementById("asr-time").innerHTML = timings.Asr;
      document.getElementById("sunset-time").innerHTML = timings.Sunset;
      document.getElementById("isha-time").innerHTML = timings.Isha;
-    // console.log(response.data.data.date.readable);
-    //  const readableDate = response.data.data.readableDate;
-    //  const weekDay = response.data.data.data.hijri.weekDay.ar;
-    // const date = readableDate + " " + weekDay;
      document.getElementById("date").innerHTML = response.data.data.date.readable;
-    //  console.log(readableDate + " " + weekDay);
     })
     .catch(function (error) {
         console.log(error);
     });
-  })
+  }
