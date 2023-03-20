@@ -1982,7 +1982,8 @@ let cities = [
     let params = {
         country : "MA",
         city:this.value
-    }
+    };
+    document.getElementById('city-name').innerText = this.value;
     axios.get('http://api.aladhan.com/v1/timingsByCity',{
         params : params
     })
