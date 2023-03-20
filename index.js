@@ -71,8 +71,8 @@ let cities = [
     },
     {
       "id": "14",
-      "name": "Aknoul‎",
-      "label": "Aknoul‎"
+      "name": "Aknoul",
+      "label": "Aknoul"
     },
     {
       "id": "15",
@@ -81,8 +81,8 @@ let cities = [
     },
     {
       "id": "16",
-      "name": "Al Hoceïma‎",
-      "label": "Al Hoceïma‎"
+      "name": "Al Hoceïma",
+      "label": "Al Hoceïma"
     },
     {
       "id": "17",
@@ -1967,10 +1967,13 @@ let cities = [
   ]
 
 
-  let id_cities = document.getElementById('cities');
+  let select = document.getElementById('cities');
 
   window.onload = (event) => {
      cities.map(city => {
-        console.log(city.name);
+        var opt = document.createElement('option');
+        opt.value = city.name;
+        opt.innerHTML = city.name;
+        select.appendChild(opt);
     })
   };
