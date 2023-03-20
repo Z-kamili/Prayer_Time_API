@@ -155,4 +155,20 @@
 
 <script src="./node_modules/axios/dist/axios.min.js"></script>
 
+<script >
+    let params = {
+        country : "MA",
+        city:'Safi'
+    }
+    axios.get('http://api.aladhan.com/v1/timingsByCity',{
+        params : params
+    })
+    .then(function (response) {
+        console.log(response.data);
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+</script>
+
 </html>
