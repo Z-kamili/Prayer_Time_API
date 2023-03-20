@@ -1,4 +1,4 @@
-[
+let cities = [
     {
       "id": "0",
       "name": "Afourar",
@@ -1966,4 +1966,11 @@
     }
   ]
 
-  
+
+  let id_cities = document.getElementById('cities');
+
+  window.onload = (event) => {
+     cities.map(city => {
+        console.log(city.name);
+    })
+  };
