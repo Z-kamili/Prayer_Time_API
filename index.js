@@ -1964,7 +1964,7 @@ let cities = [
       "name": "Zinat",
       "label": "Zinat"
     }
-  ]
+  ];
 
 
   let select = document.getElementById('cities');
@@ -2008,3 +2008,11 @@ let cities = [
         console.log(error);
     });
   }
+
+
+  function customfunction(params,second_params) 
+  {
+    document.getElementById("fajr-time").innerHTML = timings.Fajr;
+  }
+
+
