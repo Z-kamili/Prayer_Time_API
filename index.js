@@ -1997,12 +1997,12 @@ let cities = [
     })
     .then(function (response) {
      const timings = response.data.data.timings;
-     document.getElementById("fajr-time").innerHTML = timings.Fajr;
-     document.getElementById("dhurh-time").innerHTML = timings.Dhuhr;
-     document.getElementById("asr-time").innerHTML = timings.Asr;
-     document.getElementById("sunset-time").innerHTML = timings.Sunset;
-     document.getElementById("isha-time").innerHTML = timings.Isha;
-     document.getElementById("date").innerHTML = response.data.data.date.readable;
+     customfunction("fajr-time",timings.Fajr);
+     customfunction("dhurh-time",timings.Dhuhr);
+     customfunction("asr-time",timings.Asr);
+     customfunction("sunset-time",timings.Sunset);
+     customfunction("isha-time",timings.Isha);
+     customfunction("date",response.data.data.date.readable);
     })
     .catch(function (error) {
         console.log(error);
