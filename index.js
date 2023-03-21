@@ -2012,7 +2012,7 @@ let cities = [
 
   function customfunction(params,second_params) 
   {
-    document.getElementById("fajr-time").innerHTML = timings.Fajr;
+    document.getElementById(params).innerHTML = second_params;
   }
 
 
